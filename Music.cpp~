@@ -1,0 +1,6 @@
+#include <iostream>
+#include "Music.h"
+
+char* Music::getArtist{
+  
+}
