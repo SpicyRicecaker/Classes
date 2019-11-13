@@ -1,5 +1,7 @@
 #include <iostream>
 
+#ifndef MEDIA_H
+#define MEDIA_H
 class Media{
  public:
   char* getTitle();
@@ -9,3 +11,4 @@ class Media{
   char* title[48];
   int year;
 };
+#endif
