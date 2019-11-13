@@ -7,6 +7,7 @@ class Movies : public Media
   char* getDirector();
   float getDuration();
   float getRating();
+  int getType();
  private:
   char* director[48];
   float duration;

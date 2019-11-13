@@ -1,0 +1,15 @@
+#include <iostream>
+#include "Media.h"
+
+class Videogames : public Media
+{
+ public:
+  char* getPublisher();
+  float getRating();
+  int getType();
+  void setPublisher(char* newPublisher[48]);
+  void setRating(float newRating);
+ private:
+  char* publisher[48];
+  float rating;
+};

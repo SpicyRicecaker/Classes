@@ -59,32 +59,23 @@ void search(vector <Media*>* medListP){
 
 void addVideogames(vector <Media*>* medListP){
   //Title (char), Year (int), Publisher (char), Rating (float)
+  vector<Media*>::iterator
   
   medListP->push_back(new Videogames());
 
-  vector<Media*>::iterator medListIt = medListP->end();
-  
   cout << "Please enter the title" << endl;
-  cin.get((*medListIt)->title, 48);
+  cin.get(medListP->at(medListP->size()-1)->title, 48);
   cin.clear();
-  cin.ignore(999, '\n');
+  cin.ignore(999, '/n');
 
   cout << "Please enter the Year" << endl;
-  cin.get((*medListIt)->year, 5);
+  cin.get(medListP->at(medListP->size()-1)->year, 5);
   cin.clear();
-  cin.ignore(999, '\n');
+  cin.ignore();
 
   cout << "Please enter the Publisher" << endl;
-  cin.get((*medListIt)->publisher, 48);
-  cin.clear();
-  cin.ignore(999, '\n');
-
-  cout << "Please enter the Rating" << endl;
-  cin.get((*medListIt)->rating, 48);
-  cin.clear();
-  cin.ignore(999, '\n');
-
-  cout << "Successfully added new Videogame." << endl;
+  cin.get(medListP->at(medListP->size()-1)->title, 48);
+  
 }
 
 void addMusic(vector <Media*>* medListP){
