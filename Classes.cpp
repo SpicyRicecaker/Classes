@@ -50,7 +50,82 @@ void add(vector <Media*>* medListP){
 }
 
 void del(vector <Media*>* medListP){
+  char input [7] = "";
+  cout << "Would you like to delete by title or by year?" << endl;
+  while(true){
+    cin.get(input, 7);
+    cin.clear();
+    cin.ignore(999, '\n');
 
+    for(int a = 0; a < strlen(input); a++){
+      input[a] = toupper(input[a]);
+    }
+
+    if(strcmp(input, "TITLE") == 0 || strcmp(input, "YEAR") == 0){
+      break;
+    }
+
+    cout << "Please choose either title or year" << endl;
+  }
+
+  vector <Media*>::iterator medListIt;
+
+  if(strcmp(input, "TITLE") == 0){
+    char inTitle [48] = "";
+    cout << "Please enter the title" << endl;
+    cin.get(inTitle, 48);
+    cin.clear();
+    cin.ignore(999, '\n');
+    
+    for(medListIt = medListP->begin(); medListIt != medListP->end(); ++medListIt){
+      if(strcmp((*medListIt)->getTitle(), inTitle) == 0){
+	int trans = (*medListIt)->getType();
+	//Videogame
+	if(trans == 1){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
+	}else if(trans == 2){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	}else if(trans == 3){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
+	}
+
+	cout << "Are you sure you want to delete this? (y/n)" << endl;
+
+	char chooseDel = '\n';
+	cin >> chooseDel;
+	cin.clear();
+	cin.ignore(999, '\n');
+
+	if(chooseDel == 'y'){
+	  delete *medListIt;
+	  medListIt = medListP->erase(medListIt);
+	}else{
+	  cout << "Deletion cancelled" << endl;
+	}
+	
+      }
+    }
+  }else {
+    int inYear = 0;
+    cout << "Please enter the year" << endl;
+    cin >> inYear;
+    cin.clear();
+    cin.ignore(999, '\n');
+    
+    for(medListIt = medListP->begin(); medListIt != medListP->end(); ++medListIt){
+      if((*medListIt)->getYear() == inYear){
+	int trans = (*medListIt)->getType();
+	//Videogame
+	if(trans == 1){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
+	}else if(trans == 2){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	}else if(trans == 3){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
+	} 
+      }
+    }
+  }
 }
 
 void search(vector <Media*>* medListP){
@@ -73,11 +148,47 @@ void search(vector <Media*>* medListP){
   }
 
   vector <Media*>::iterator medListIt;
-  
+
   if(strcmp(input, "TITLE") == 0){
+    char inTitle [48] = "";
+    cout << "Please enter the title" << endl;
+    cin.get(inTitle, 48);
+    cin.clear();
+    cin.ignore(999, '\n');
     
+    for(medListIt = medListP->begin(); medListIt != medListP->end(); ++medListIt){
+      if(strcmp((*medListIt)->getTitle(), inTitle) == 0){
+	int trans = (*medListIt)->getType();
+	//Videogame
+	if(trans == 1){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
+	}else if(trans == 2){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	}else if(trans == 3){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
+	} 
+      }
+    }
   }else {
+    int inYear = 0;
+    cout << "Please enter the year" << endl;
+    cin >> inYear;
+    cin.clear();
+    cin.ignore(999, '\n');
     
+    for(medListIt = medListP->begin(); medListIt != medListP->end(); ++medListIt){
+      if((*medListIt)->getYear() == inYear){
+	int trans = (*medListIt)->getType();
+	//Videogame
+	if(trans == 1){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
+	}else if(trans == 2){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	}else if(trans == 3){
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
+	} 
+      }
+    }
   }
 }
 
@@ -218,7 +329,7 @@ int main(){
 	input[a] = toupper(input[a]);
       }
       
-      if(strcmp(input, "ADD") == 0 || strcmp(input, "SEARCH") == 0 || strcmp(input, "DEL") == 0 || strcmp(input, "QUIT") == 0 || strcmp(input, "HELP") == 0){
+      if(strcmp(input, "ADD") == 0 || strcmp(input, "SEARCH") == 0 || strcmp(input, "DELETE") == 0 || strcmp(input, "QUIT") == 0 || strcmp(input, "HELP") == 0){
 	break;
       }
 
@@ -229,7 +340,7 @@ int main(){
       add(medListP);
     }else if(strcmp(input, "SEARCH") == 0){
       search(medListP);
-    }else if(strcmp(input, "DEL") == 0){
+    }else if(strcmp(input, "DELETE") == 0){
       del(medListP);
     }else if(strcmp(input, "QUIT") == 0){
       quit();
