@@ -4,13 +4,13 @@
 class Music : public Media
 {
  public:
-  Music(char*, int, char*, float, char*);
+  Music(char*, int, char*, float, float);
   char* getArtist();
   float getDuration();
-  char* getPublisher();
+  float getRating();
   int getType();
  private:
   char artist[48];
   float duration;
-  char publisher[48];
+  float rating;
 };

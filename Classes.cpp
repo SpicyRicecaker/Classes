@@ -84,7 +84,7 @@ void del(vector <Media*>* medListP){
 	if(trans == 1){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
 	}else if(trans == 2){
-	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getPublisher() << endl;
 	}else if(trans == 3){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
 	}
@@ -119,7 +119,7 @@ void del(vector <Media*>* medListP){
 	if(trans == 1){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
 	}else if(trans == 2){
-	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getPublisher() << endl;
 	}else if(trans == 3){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
 	} 
@@ -163,7 +163,7 @@ void search(vector <Media*>* medListP){
 	if(trans == 1){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
 	}else if(trans == 2){
-	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getPublisher() << endl;
 	}else if(trans == 3){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
 	} 
@@ -183,7 +183,7 @@ void search(vector <Media*>* medListP){
 	if(trans == 1){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
 	}else if(trans == 2){
-	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getRating() << endl;
+	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Music*)(*medListIt))->getArtist() << ", " << ((Music*)(*medListIt))->getDuration() << ", "<< ((Music*)(*medListIt))->getPublisher() << endl;
 	}else if(trans == 3){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
 	} 
@@ -226,13 +226,13 @@ void addVideogames(vector <Media*>* medListP){
 }
 
 void addMusic(vector <Media*>* medListP){
-  //Title (char), Year (int), newArtist (char), new Duration (float), new Rating (float)
+  //Title (char), Year (int), newArtist (char), new Duration (float), new Publisher (char)
 
   char tempTitle[48] = "";
   int tempYear = 0;
   char tempArtist[48] = "";
   float tempDuration = 0.0;
-  float tempRating = 0.0;
+  char tempPublisher[48] = "";
   
   cout << "Please enter the title" << endl;
   cin.get(tempTitle, 48);
@@ -254,13 +254,13 @@ void addMusic(vector <Media*>* medListP){
   cin.clear();
   cin.ignore(999, '\n');
   
-  cout << "Please enter the Rating" << endl;
-  cin >> tempRating;
+  cout << "Please enter the Publisher" << endl;
+  cin >> tempPublisher;
   cin.clear();
   cin.ignore(999, '\n');
 
   cout << "Trying to push back" << endl;
-  medListP->push_back(new Music(tempTitle, tempYear, tempArtist, tempDuration, tempRating));
+  medListP->push_back(new Music(tempTitle, tempYear, tempArtist, tempDuration, tempPublisher));
   
   cout << "Successfully added new Music." << endl;
 }
