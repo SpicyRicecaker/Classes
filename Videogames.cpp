@@ -18,3 +18,7 @@ float Videogames::getRating(){
 int Videogames::getType(){
   return 1;
 }
+
+Videogames::~Videogames(){
+  delete publisher;
+}

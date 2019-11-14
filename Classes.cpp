@@ -1,3 +1,10 @@
+/*
+  Author: Andy Li
+  Date: 11/13/2019
+  Classes: A program that takes in information about 3 different types of media: Videogames, Music, and Movies defined by classes and header files stored in vector arrays that can add, delete, search for media and information. Destructors are also used.
+ */
+
+
 #include <iostream>
 #include <cstring>
 #include <vector>
@@ -22,10 +29,12 @@ void addMovies(vector <Media*>* medListP);
 
 void quit();
 
+//The add function prompts the user for a type of media and sends them to a corresponding function that asks about the corresponding values
 void add(vector <Media*>* medListP){
   char mediaTypeInput[12] = "";
   
   cout << "Please choose the type of media to add. (Videogames, Music, or Movies)" << endl;
+  //Input validation
   while(true){
     cin.get(mediaTypeInput, 12);
     cin.clear();
@@ -49,6 +58,7 @@ void add(vector <Media*>* medListP){
   }
 }
 
+//Delete uses much of search's methods and uses delete and erase to remove corresponding media types
 void del(vector <Media*>* medListP){
   char input [7] = "";
   cout << "Would you like to delete by title or by year?" << endl;
@@ -144,6 +154,7 @@ void del(vector <Media*>* medListP){
   }
 }
 
+//Search prompts the user for title or year search, a title or year, then uses an iterator that loops through the vector to find media types with matching titles or years and prints them out
 void search(vector <Media*>* medListP){
   char input [7] = "";
   cout << "Would you like to search by title or by year?" << endl;
@@ -208,6 +219,7 @@ void search(vector <Media*>* medListP){
   }
 }
 
+//Add videogames prompts the user for information pertaining to videogames
 void addVideogames(vector <Media*>* medListP){
   //Title (char), Year (int), Publisher (char), Rating (float)
   char tempTitle[48] = "";
@@ -241,6 +253,7 @@ void addVideogames(vector <Media*>* medListP){
   cout << "Successfully added new Videogame." << endl;
 }
 
+//Asks the user for 
 void addMusic(vector <Media*>* medListP){
   //Title (char), Year (int), newArtist (char), new Duration (float), new Publisher (char)
 

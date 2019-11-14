@@ -23,3 +23,7 @@ float Movies::getRating(){
 int Movies::getType(){
   return 3;
 }
+
+Movies::~Movies(){
+  delete director;
+}

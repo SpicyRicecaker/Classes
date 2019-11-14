@@ -2,19 +2,24 @@
 #include <cstring>
 #include "Movies.h"
 
-Videogames::Videogames(char* newTitle, int newYear, char* newPublisher, float newRating) : Media(newTitle, newYear){
-  strcpy(publisher, newPublisher);
+Movies::Movies(char* newTitle, int newYear, char* newDirector, float newDuration, float newRating) : Media(newTitle, newYear){
+  strcpy(director, newDirector);
+  duration = newDuration;
   rating = newRating;
 }
 
-char* Videogames::getPublisher(){
-  return publisher;
+char* Movies::getDirector(){
+  return director;
 }
 
-float Videogames::getRating(){
+float Movies::getDuration(){
+  return duration;
+}
+
+float Movies::getRating(){
   return rating;
 }
 
-int Videogames::getType(){
-  
+int Movies::getType(){
+  return 3;
 }
