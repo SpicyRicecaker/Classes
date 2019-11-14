@@ -75,7 +75,7 @@ void search(vector <Media*>* medListP){
   vector <Media*>::iterator medListIt;
   
   if(strcmp(input, "TITLE") == 0){
-    
+    for(medListIt = medListP
   }else {
     
   }

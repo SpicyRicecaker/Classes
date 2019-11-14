@@ -4,12 +4,13 @@
 class Movies : public Media
 {
  public:
+  Movies(char*, int, char*, float, float);
   char* getDirector();
   float getDuration();
   float getRating();
   int getType();
  private:
-  char* director[48];
+  char director[48];
   float duration;
   float rating;
 };

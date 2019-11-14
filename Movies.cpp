@@ -13,7 +13,7 @@ char* Movies::getDirector(){
 }
 
 float Movies::getDuration(){
-
+  return duration;
 }
 
 float Movies::getRating(){
@@ -21,5 +21,5 @@ float Movies::getRating(){
 }
 
 int Movies::getType(){
-  
+  return 3;
 }

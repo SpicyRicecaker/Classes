@@ -1,7 +1,8 @@
 #include <iostream>
+#include <cstring>
 #include "Music.h"
 
-Music::Music(char* newTitle, int newYear, char* newArtist, float newDuration, float newRating){
+Music::Music(char* newTitle, int newYear, char* newArtist, float newDuration, float newRating) : Media(newTitle, newYear){
   strcpy(artist, newArtist);
   duration = newDuration;
   rating = newRating;
@@ -20,5 +21,5 @@ float Music::getRating(){
 }
 
 int Music::getType(){
-  return 0;
+  return 2;
 }

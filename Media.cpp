@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Media.h"
 
 Media::Media(char* newTitle, int newYear){
