@@ -6,6 +6,7 @@
 class Media{
  public:
   Media(char*, int);
+  ~Media();
   char* getTitle();
   int getYear();
   virtual int getType();

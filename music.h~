@@ -5,6 +5,7 @@ class Music : public Media
 {
  public:
   Music(char*, int, char*, float, char*);
+  ~Music();
   char* getArtist();
   float getDuration();
   char* getPublisher();

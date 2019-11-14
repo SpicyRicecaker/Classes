@@ -2,9 +2,7 @@
   Author: Andy Li
   Date: 11/13/2019
   Classes: A program that takes in information about 3 different types of media: Videogames, Music, and Movies defined by classes and header files stored in vector arrays that can add, delete, search for media and information. Destructors are also used.
- */
-
-
+*/
 #include <iostream>
 #include <cstring>
 #include <vector>
@@ -59,6 +57,7 @@ void add(vector <Media*>* medListP){
 }
 
 //Delete uses much of search's methods and uses delete and erase to remove corresponding media types
+//(refer to search for search portion)
 void del(vector <Media*>* medListP){
   char input [7] = "";
   cout << "Would you like to delete by title or by year?" << endl;
@@ -99,6 +98,8 @@ void del(vector <Media*>* medListP){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Movies*)(*medListIt))->getDirector() << ", " << ((Movies*)(*medListIt))->getDuration() << ", " << ((Movies*)(*medListIt))->getRating() << endl;
 	}
 
+	//Asks for user confirmation of deletion
+
 	cout << "Are you sure you want to delete this? (y/n)" << endl;
 
 	char chooseDel = '\n';
@@ -107,9 +108,11 @@ void del(vector <Media*>* medListP){
 	cin.ignore(999, '\n');
 
 	if(chooseDel == 'y'){
+	  //Deletes contents of iterator then the iterator
 	  delete *medListIt;
 	  medListIt = medListP->erase(medListIt);  
 	}else{
+	  //Only count up if iterator wasn't deleted
 	  cout << "Deletion cancelled" << endl;
 	  ++medListIt;
 	}
@@ -156,6 +159,7 @@ void del(vector <Media*>* medListP){
 
 //Search prompts the user for title or year search, a title or year, then uses an iterator that loops through the vector to find media types with matching titles or years and prints them out
 void search(vector <Media*>* medListP){
+  //Asks for title or year
   char input [7] = "";
   cout << "Would you like to search by title or by year?" << endl;
   while(true){
@@ -174,19 +178,23 @@ void search(vector <Media*>* medListP){
     cout << "Please enter title or year" << endl;
   }
 
+  //Makes iterator
   vector <Media*>::iterator medListIt;
 
+  //Asks for title 
   if(strcmp(input, "TITLE") == 0){
     char inTitle [48] = "";
     cout << "Please enter the title" << endl;
     cin.get(inTitle, 48);
     cin.clear();
     cin.ignore(999, '\n');
-    
+
+    //Loops through the media list
     for(medListIt = medListP->begin(); medListIt != medListP->end(); ++medListIt){
+      //Until corresponding title is found
       if(strcmp((*medListIt)->getTitle(), inTitle) == 0){
 	int trans = (*medListIt)->getType();
-	//Videogame
+	//Casts type to methods and displays info
 	if(trans == 1){
 	  cout << (*medListIt)->getTitle() << ", " << (*medListIt)->getYear() << ", " << ((Videogames*)(*medListIt))->getPublisher() << ", " << ((Videogames*)(*medListIt))->getRating() << endl;
 	}else if(trans == 2){
@@ -196,6 +204,7 @@ void search(vector <Media*>* medListP){
 	} 
       }
     }
+    //Same principles for year
   }else {
     int inYear = 0;
     cout << "Please enter the year" << endl;
@@ -247,13 +256,13 @@ void addVideogames(vector <Media*>* medListP){
   cin.clear();
   cin.ignore(999, '\n');
 
-  cout << "Trying to push back" << endl;
+  //Constructs a new Videogame with the gathered information
   medListP->push_back(new Videogames(tempTitle, tempYear, tempPublisher, tempRating));
   
   cout << "Successfully added new Videogame." << endl;
 }
 
-//Asks the user for 
+//Asks the user for information pertaining to music
 void addMusic(vector <Media*>* medListP){
   //Title (char), Year (int), newArtist (char), new Duration (float), new Publisher (char)
 
@@ -288,12 +297,13 @@ void addMusic(vector <Media*>* medListP){
   cin.clear();
   cin.ignore(999, '\n');
 
-  cout << "Trying to push back" << endl;
+  //Constructs new Music with the input values
   medListP->push_back(new Music(tempTitle, tempYear, tempArtist, tempDuration, tempPublisher));
   
   cout << "Successfully added new Music." << endl;
 }
 
+//Asks the user for information pertaining to movies
 void addMovies(vector <Media*>* medListP){
   //Title (char), Year (int), Director (char), Duration (float), Rating (float)
   char tempTitle[48] = "";
@@ -327,24 +337,28 @@ void addMovies(vector <Media*>* medListP){
   cin.clear();
   cin.ignore(999, '\n');
 
-  cout << "Trying to push back" << endl;
+  //Constructs a new Movie with the input values
   medListP->push_back(new Movies(tempTitle, tempYear, tempDirector, tempDuration, tempRating));
   
   cout << "Successfully added new Movie." << endl;
 }
 
+//Exits the program
 void quit(){
   exit(0);
 }
 
+//The main method of Classes
 int main(){
   char input[8] = "";
   
   bool running = true;
 
+  //Vectors that store media
   vector <Media*> medList;
   vector <Media*>* medListP = &medList; 
 
+  //Program loop to ask user for command
   while(running){
 
     cout << "Please enter a command. Type \"HELP\" for help." << endl;

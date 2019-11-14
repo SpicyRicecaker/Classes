@@ -5,6 +5,7 @@ class Videogames : public Media
 {
  public:
   Videogames(char*, int, char*, float);
+  ~Videogames();
   char* getPublisher();
   float getRating();
   int getType();

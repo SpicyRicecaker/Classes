@@ -20,5 +20,5 @@ int Videogames::getType(){
 }
 
 Videogames::~Videogames(){
-  delete[] publisher;
+  delete publisher;
 }
