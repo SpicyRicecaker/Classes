@@ -59,40 +59,108 @@ void search(vector <Media*>* medListP){
 
 void addVideogames(vector <Media*>* medListP){
   //Title (char), Year (int), Publisher (char), Rating (float)
-  
-  medListP->push_back(new Videogames());
-
-  vector<Media*>::iterator medListIt = medListP->end();
+  char tempTitle[48] = "";
+  int tempYear = 0;
+  char tempPublisher[48] = "";
+  float tempRating = 0.0;
   
   cout << "Please enter the title" << endl;
-  cin.get((*medListIt)->title, 48);
+  cin.get(tempTitle, 48);
   cin.clear();
   cin.ignore(999, '\n');
 
   cout << "Please enter the Year" << endl;
-  cin.get((*medListIt)->year, 5);
+  cin >> tempYear;
   cin.clear();
   cin.ignore(999, '\n');
 
   cout << "Please enter the Publisher" << endl;
-  cin.get((*medListIt)->publisher, 48);
+  cin.get(tempPublisher, 48);
   cin.clear();
   cin.ignore(999, '\n');
 
   cout << "Please enter the Rating" << endl;
-  cin.get((*medListIt)->rating, 48);
+  cin >> tempRating;
   cin.clear();
   cin.ignore(999, '\n');
 
+  cout << "Trying to push back" << endl;
+  medListP->push_back(new Videogames(tempTitle, tempYear, tempPublisher, tempRating));
+  
   cout << "Successfully added new Videogame." << endl;
 }
 
 void addMusic(vector <Media*>* medListP){
+  //Title (char), Year (int), newArtist (char), new Duration (float), new Rating (float)
 
+  char tempTitle[48] = "";
+  int tempYear = 0;
+  char tempArtist[48] = "";
+  float tempDuration = 0.0;
+  float tempRating = 0.0;
+  
+  cout << "Please enter the title" << endl;
+  cin.get(tempTitle, 48);
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Please enter the Year" << endl;
+  cin >> tempYear;
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Please enter the Artist" << endl;
+  cin.get(tempArtist, 48);
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Please enter the Duration" << endl;
+  cin.get(tempDuration, 48);
+  cin.clear();
+  cin.ignore(999, '\n');
+  
+  cout << "Please enter the Rating" << endl;
+  cin >> tempRating;
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Trying to push back" << endl;
+  medListP->push_back(new Music(tempTitle, tempYear, tempArtist, tempDuration, tempRating));
+  
+  cout << "Successfully added new Music." << endl;
 }
 
 void addMovies(vector <Media*>* medListP){
+  //Title (char), Year (int), Publisher (char), Rating (float)
+  char tempTitle[48] = "";
+  int tempYear = 0;
+  char tempPublisher[48] = "";
+  float tempRating = 0.0;
+  
+  cout << "Please enter the title" << endl;
+  cin.get(tempTitle, 48);
+  cin.clear();
+  cin.ignore(999, '\n');
 
+  cout << "Please enter the Year" << endl;
+  cin >> tempYear;
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Please enter the Publisher" << endl;
+  cin.get(tempPublisher, 48);
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Please enter the Rating" << endl;
+  cin >> tempRating;
+  cin.clear();
+  cin.ignore(999, '\n');
+
+  cout << "Trying to push back" << endl;
+  medListP->push_back(new Videogames(tempTitle, tempYear, tempPublisher, tempRating));
+  
+  cout << "Successfully added new Videogame." << endl;
 }
 
 void quit(){

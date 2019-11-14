@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "Videogames.h"
+#include "Movies.h"
 
 Videogames::Videogames(char* newTitle, int newYear, char* newPublisher, float newRating) : Media(newTitle, newYear){
   strcpy(publisher, newPublisher);
